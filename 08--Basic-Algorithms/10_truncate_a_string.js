@@ -15,19 +15,16 @@
  */
 
 function truncate(str, num) {
-  if (num >= str.length) {
+    if (num >= str.length) {
+        return str;
+    }
+    if (str.length > 3 && num > 3) {
+        return str.substr(0,num-3) + "...";  
+    }
+    else if (str.length <= 3 || num <= 3) {
+        return str.substr(0,num) + "...";
+    }
     return str;
-  }
-  if (str.length > 3 && num > 3) {
-    return str.substr(0,num-3) + "...";  
-  }
-  else if (str.length <= 3) {
-    return str.substr(0,num) + "...";
-  }
-  else if (num <= 3) {
-    return str.substr(0,num) + "...";
-  }
-  return str;
 }
 
 truncate("Absolutely Longer", 2);
