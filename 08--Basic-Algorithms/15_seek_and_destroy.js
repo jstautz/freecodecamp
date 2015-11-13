@@ -23,11 +23,7 @@ function destroyer(arr) {
   
     // Filter out anything in collected args array
     return arrayToTrim.filter(function(element) {
-        if (toDelete.indexOf(element) >= 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return toDelete.indexOf(element) === -1;
     });
 }
 
