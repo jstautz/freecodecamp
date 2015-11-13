@@ -13,11 +13,7 @@
  *   Array.filter() -- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
  */
 
-function isFalse(value) {
-    return value;
-}
-
 function bouncer(arr) {
-    return arr.filter(isFalse);
+    return arr.filter(function(value) {return value;});
 }
 
