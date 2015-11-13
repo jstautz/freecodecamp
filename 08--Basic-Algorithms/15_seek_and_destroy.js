@@ -17,7 +17,6 @@ function destroyer(arr) {
   
     for (i = 1; i < arguments.length; i++) {
         arrayToTrim = arrayToTrim.filter(doesntExist(arguments[i])); 
-        console.log(arrayToTrim);
     }
     return arrayToTrim;
 }
@@ -25,7 +24,6 @@ function destroyer(arr) {
 function doesntExist(arg) {
     return function(value) {
         if (arguments[0] === arg) {
-            console.log("removed " + arguments[0] + " because equals " + arg);
             return false;
         } else {
             return true;
