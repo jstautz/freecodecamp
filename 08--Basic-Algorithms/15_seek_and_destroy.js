@@ -14,21 +14,21 @@
 
 function destroyer(arr) {
     var arrayToTrim = arguments[0];
-  
-    for (i = 1; i < arguments.length; i++) {
-        arrayToTrim = arrayToTrim.filter(doesntExist(arguments[i])); 
-    }
-    return arrayToTrim;
-}
 
-function doesntExist(arg) {
-    return function(value) {
-        if (arguments[0] === arg) {
+    // Collect all args together
+    var toDelete = [];
+    for (i = 1; i < arguments.length; i++) {
+        toDelete.push(arguments[i]);
+    }
+  
+    // Filter out anything in collected args array
+    return arrayToTrim.filter(function(element) {
+        if (toDelete.indexOf(element) >= 0) {
             return false;
         } else {
             return true;
         }
-    };
+    });
 }
 
 destroyer([1, 2, 3, 1, 2, 3], 2, 3, 6, 7);
