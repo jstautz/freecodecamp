@@ -15,14 +15,28 @@
  */
 
 // Recursive solution
+function factorializeRecursive(num) {
+  if (num == 1 || num === 0) {
+    return 1;
+}
+  else {
+    return num * factorialize(num-1);
+  }
+}
 
+// Iterative solution
 function factorialize(num) {
-    if (num == 1 || num === 0) {
+    if (num === 0) {
         return 1;
     }
     else {
-        return num * factorialize(num-1);
+        var sum = 1;
+        for (i = 1; i <=num; i++) {
+            sum = sum * i;
+        }
+      return sum;
     }
+    
 }
 
 factorialize(5);
