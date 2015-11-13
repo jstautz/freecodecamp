@@ -14,18 +14,23 @@
 
 function destroyer(arr) {
     var arrayToTrim = arguments[0];
-    
+  
     for (i = 1; i < arguments.length; i++) {
-      arrayToTrim.filter(notInArray);
+        arrayToTrim = arrayToTrim.filter(doesntExist(arguments[i])); 
+        console.log(arrayToTrim);
     }
     return arrayToTrim;
 }
 
-function notInArray(value, index, array) {
-    if (array.indexOf(value) >= 0) {
-         return false;
-    }
-    return true;
+function doesntExist(arg) {
+    return function(value) {
+        if (arguments[0] === arg) {
+            console.log("removed " + arguments[0] + " because equals " + arg);
+            return false;
+        } else {
+            return true;
+        }
+    };
 }
 
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+destroyer([1, 2, 3, 1, 2, 3], 2, 3, 6, 7);
