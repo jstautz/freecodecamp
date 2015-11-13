@@ -12,15 +12,10 @@
  */
 
 function repeat(str, num) {
-
     if (num <= 0) {
         return "";
     }
-    var repeatString = "";
-    for (i = 0; i < num; i++) {
-        repeatString = repeatString + str;
-    }
-    return repeatString;
+    return str + repeat(str, num-1);
 }
 
 repeat("abc", 3);
