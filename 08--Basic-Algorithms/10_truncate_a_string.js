@@ -11,7 +11,7 @@
  *   If the length of the string is less than or equal to 3 characters, then the length of the three dots is not added to the string length.
  *   Remember to use Read-Search-Ask if you get stuck. Write your own code.
  *   Here are some helpful links:
- *   String.slice()
+ *   String.slice() - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
  */
 
 function truncate(str, num) {
