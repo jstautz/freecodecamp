@@ -15,22 +15,14 @@
  */
 
 function diff(arr1, arr2) {
-  var newArr = [];
-  // filter out anything in arr1 that equals something in arr2
-  // filter out anything in arr2 that equals anything in arr1
-  // return fitered1 + filtered2
-  newArr = arr1.filter(notInArray, arr2);
-  newArr = newArr.concat(arr2.filter(notInArray, arr1));
-  return newArr;
+    var newArr = [];
+    newArr = arr1.filter(notInArray, arr2);
+    newArr = newArr.concat(arr2.filter(notInArray, arr1));
+    return newArr;
 }
 
 function notInArray(value) {
-  var exists = true;
-  for (i = 0; i < this.length; i++) {
-    if (value === this[i]) {
-      console.log("equals " + this[i] + " and " + value);
-      exists = false;
-    }
-  }
-  return exists;
+    return (this.indexOf(value) === -1);
 }
+
+diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
