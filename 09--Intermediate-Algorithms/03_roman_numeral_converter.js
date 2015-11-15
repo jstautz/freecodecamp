@@ -1,6 +1,6 @@
 /*
  * Free Code Camp
- * 09 - 02 - Diff Two Arrays
+ * 09 - 03 - Roman Numeral Converter
  *
  * Created by Jeff Stautz, 2015-11-14
  *
@@ -14,49 +14,29 @@
  *   Array.join() - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
  */
 
-function convert(num) {
-    var numArray = num.toString().split("").map(function(t) { return parseInt(t);});
-    var digitsLeft = numArray.length;
-    var romanString = "";
-    var remainder = 0;
+function convert(num){
+  // Convert int to array of ints so we can work through each digit one by one
+  var numArray = num.toString().split("").map(function(t) { return parseInt(t);});
+
+  // Keep track of which digit we're on
+  var digitsLeft = numArray.length;
+
+  // We'll build our string here
+  var romanString = "";
     
     for (i = 0; i < numArray.length; i++) {
         if (digitsLeft == 4) {
-            // Thousands
+            // We're on the thousands place
             romanString += repeat("M", numArray[i]); 
         } else if (digitsLeft == 3){
             // Hundreds
-            if (numArray[i] == 9) {
-                romanString += "CM";
-            } else if (numArray[i] >= 5){
-                romanString += "D" + repeat("C", numArray[i] % 5);
-            } else if (numArray[i] == 4) {
-                romanString += "CD";
-            } else if (numArray[i] < 4) {
-                romanString += repeat("C", numArray[i]);
-            }
+            romanString += romanize(numArray[i], "M", "D", "C");
         } else if (digitsLeft == 2) {
             // Tens
-            if (numArray[i] == 9) {
-                romanString += "XC";
-            } else if (numArray[i] >= 5){
-                romanString += "L" + repeat("X", numArray[i] % 5);
-            } else if (numArray[i] == 4) {
-                romanString += "XL";
-            } else if (numArray[i] < 4) {
-                romanString += repeat("X", numArray[i]);
-            }
+            romanString += romanize(numArray[i], "C", "L", "X");
         } else if (digitsLeft == 1) {
             // Ones
-            if (numArray[i] == 9) {
-                romanString += "IX";
-            } else if (numArray[i] >= 5){
-                romanString += "V" + repeat("I", numArray[i] % 5);
-            } else if (numArray[i] == 4) {
-                romanString += "IV";
-            } else if (numArray[i] < 4) {
-                romanString += repeat("I", numArray[i]);
-            }
+            romanString += romanize(numArray[i], "X", "V", "I");
         }
         digitsLeft--;
     }
@@ -65,6 +45,20 @@ function convert(num) {
 
 function repeat(str, times) {
     return new Array(times + 1).join(str);
+}
+
+function romanize(digit, tens, fives, ones) {
+  var string = "";
+  if (digit == 9) {
+    string += ones + tens;
+  } else if (digit >= 5) {
+    string += fives + repeat(ones, digit % 5);
+  } else if (digit == 4) {
+    string += ones + fives;
+  } else if (digit < 4) {
+    string += repeat(ones, digit);
+  }
+  return string;
 }
 
 convert(1450);
