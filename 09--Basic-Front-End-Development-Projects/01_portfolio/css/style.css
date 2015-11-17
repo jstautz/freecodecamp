@@ -1,1 +1,11 @@
- 
+#social-buttons {
+    margin-top: 50px;
+}
+
+#social-buttons a,
+#social-buttons a:link,
+#social-buttons a:visited,
+#social-buttons a:hover {
+    color:black;
+    text-decoration:none;
+}
