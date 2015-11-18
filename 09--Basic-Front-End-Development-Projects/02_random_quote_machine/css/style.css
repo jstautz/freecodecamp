@@ -1,0 +1,15 @@
+blockquote {
+  margin-top: 40px;
+}
+
+#twitter {
+  margin-top: 40px;
+}
+
+#twitter a,
+#twitter a:link,
+#twitter a:visited,
+#twitter a:hover {
+    color:black;
+    text-decoration:none;
+}
