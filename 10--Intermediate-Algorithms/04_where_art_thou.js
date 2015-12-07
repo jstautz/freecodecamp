@@ -21,21 +21,27 @@
 
 
 function where(collection, source) {
-  var findKey = Object.keys(source);
-  var findValue = source[findKey];
-  var thisObject;
-  var matchArray = [];
-  
-  for (i = 0; i < collection.length; i++) {
-    thisObject = collection[i];
-    if (thisObject[findKey] === findValue) {
-      console.log("found one: " + thisObject[findKey]);
-      matchArray.push(thisObject);
-    } else {
-      console.log("not this one: " + thisObject[findKey]);
+    var keysToFind = Object.keys(source);
+    var matchArray = [];
+    var matching;
+
+    // For every object in collection, go through each item in source
+    // see if key & value match
+    for (i = 0; i < collection.length; i++) {
+        matching = false;
+        for (j = 0; j < keysToFind.length; j++) {
+            if (collection[i][keysToFind[j]] === source[keysToFind[j]]) {
+                matching = true;
+            } else {
+                matching = false;
+            }
+        }
+        // if we make it out with all key/value pairs matching, add to array
+        if (matching) {
+            matchArray.push(collection[i]);
+        }
     }
-  } 
-  return matchArray;
+    return matchArray;   
 }
 
 where([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
