@@ -1,6 +1,6 @@
 /*
  * Free Code Camp
- * 09 - 06 - Pig latin
+ * 10 - 06 - Pig latin
  *
  * Created by Jeff Stautz, 2015-12-07
  *

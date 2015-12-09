@@ -1,6 +1,6 @@
 /*
  * Free Code Camp
- * 09 - 02 - Diff Two Arrays
+ * 10 - 02 - Diff Two Arrays
  *
  * Created by Jeff Stautz, 2015-11-14
  *

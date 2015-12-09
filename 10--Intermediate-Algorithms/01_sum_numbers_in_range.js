@@ -1,6 +1,6 @@
 /*
  * Free Code Camp
- * 09 - 01 - Sum all Numbers in a Range
+ * 10 - 01 - Sum all Numbers in a Range
  *
  * Created by Jeff Stautz, 2015-11-13
  *
