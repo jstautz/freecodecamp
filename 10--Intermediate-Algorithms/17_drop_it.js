@@ -12,7 +12,6 @@
 
 function drop(arr, func) {  
     for (i = 0; i < arr.length; i++) {
-        console.log(func(arr[i]));
         if (func(arr[i])) {
             return arr;
         } else {
